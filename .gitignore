@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.i??
 .idea
 target
@@ -5,3 +6,15 @@ target
 .classpath
 .DS_Store
 dependency-reduced-pom.xml
+=======
+generated-docs-karaf
+.settings
+.classpath
+.project
+target
+.idea
+.vscode
+*.i??
+velocity.log
+.DS_Store
+>>>>>>> branch 'org.apache.servicemix.bundles.elasticsearch-6.6.2_1' of https://github.com/garpinc/servicemix.git
