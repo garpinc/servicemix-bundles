@@ -54,7 +54,7 @@
             org.elasticsearch.client.node;version="${pkgVersion}";-split-package:=merge-first
         </servicemix.osgi.export>
         <servicemix.osgi.import.pkg>
-
+			org.apache.logging.log4j*;version="[2.8,4)";resolution:=optional
         </servicemix.osgi.import.pkg>
     </properties>
 
