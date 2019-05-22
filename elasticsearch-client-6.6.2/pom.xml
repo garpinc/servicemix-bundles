@@ -54,7 +54,16 @@
             org.elasticsearch.client.node;version="${pkgVersion}";-split-package:=merge-first
         </servicemix.osgi.export>
         <servicemix.osgi.import.pkg>
-			org.apache.logging.log4j*;version="[2.8,4)";resolution:=optional
+			org.apache.logging.log4j*;version="[2.8,4)";resolution:=optional,
+			!org.elasticsearch.client*,
+			com.carrotsearch.hppc*;resolution:=optional,
+			com.google.commmon*;resolution:=optional,
+			com.sun.jna*;resolution:=optional,
+			org.elasticsearch.index.rankeval;resolution:=optional,
+			org.elasticsearch.join;resolution:=optional,
+			org.elasticsearch.percolator;resolution:=optional,
+			org.elasticsearch.script.mustache;resolution:=optional,			
+			*
         </servicemix.osgi.import.pkg>
     </properties>
 
