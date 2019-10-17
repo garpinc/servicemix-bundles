@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!--
+
+        Licensed to the Apache Software Foundation (ASF) under one or more
+        contributor license agreements.  See the NOTICE file distributed with
+        this work for additional information regarding copyright ownership.
+        The ASF licenses this file to You under the Apache License, Version 2.0
+        (the "License"); you may not use this file except in compliance with
+        the License.  You may obtain a copy of the License at
+
+           http://www.apache.org/licenses/LICENSE-2.0
+
+        Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+    -->
+    
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+        <groupId>org.apache.servicemix.bundles</groupId>
+        <artifactId>bundles-pom</artifactId>
+        <version>10</version>
+        <relativePath>../bundles-pom/pom.xml</relativePath>
+    </parent>
+    
+    <groupId>org.apache.servicemix.bundles</groupId>
+    <artifactId>org.apache.servicemix.bundles.unirest</artifactId>
+    <packaging>bundle</packaging>
+    <version>2.3.16</version>
+    <name>Apache ServiceMix :: Bundles :: ${pkgArtifactId}</name>
+    <description>This OSGi bundle wraps ${pkgArtifactId} ${pkgVersion} jar file.</description>
+    
+    <properties>
+        <pkgGroupId>com.konghq</pkgGroupId>
+        <pkgArtifactId>unirest-java</pkgArtifactId>
+        <pkgVersion>2.3.16</pkgVersion>
+        <servicemix.osgi.export.pkg>
+            kong.unirest,
+            kong.unirest.apache
+        </servicemix.osgi.export.pkg>
+        <servicemix.osgi.import.pkg>
+        </servicemix.osgi.import.pkg>
+    </properties>
+    
+    <dependencies>
+    
+        <dependency>
+            <groupId>${pkgGroupId}</groupId>
+            <artifactId>${pkgArtifactId}</artifactId>
+            <version>${pkgVersion}</version>
+        </dependency>
+
+        <!-- sources -->
+        <!--
+        <dependency>
+            <groupId>${pkgGroupId}</groupId>
+            <artifactId>${pkgArtifactId}</artifactId>
+            <version>${pkgVersion}</version>
+            <classifier>sources</classifier>
+        </dependency>
+        -->
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>4.1.0</version>
+                <extensions>true</extensions>
+                <dependencies>
+		          <dependency>
+		            <groupId>biz.aQute.bnd</groupId>
+		            <artifactId>bndlib</artifactId>
+		            <version>2.4.0</version>
+		          </dependency>
+		        </dependencies>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                        <Bundle-Description>${project.description}</Bundle-Description>
+                        <Export-Package>${servicemix.osgi.export}</Export-Package>
+                        <Import-Package>${servicemix.osgi.import.pkg}</Import-Package>
+                        <Private-Package>${servicemix.osgi.private.pkg}</Private-Package>
+                        <DynamicImport-Package>${servicemix.osgi.dynamicimport.pkg}</DynamicImport-Package>
+                        <Embed-Dependency>${servicemix.osgi.embed.dependency}</Embed-Dependency>
+                        <Bundle-NativeCode>*</Bundle-NativeCode>
+                        <Bundle-Activator>${servicemix.osgi.activator}</Bundle-Activator>
+                        <Fragment-Host>${servicemix.osgi.fragment.host}</Fragment-Host>
+                        <SPI-Provider>${servicemix.spi.provider}</SPI-Provider>
+                        <SPI-Consumer>${servicemix.spi.consumer}</SPI-Consumer>
+                        <_failok>${servicemix.osgi.failok}</_failok>
+                        <_versionpolicy>[$(version;==;$(@)),$(version;+;$(@)))</_versionpolicy>
+                        <_removeheaders>Ignore-Package,Include-Resource,Private-Package,Embed-Dependency
+                        </_removeheaders>
+                        <_noee>true</_noee>                     
+                    </instructions>
+                    <unpackBundle>true</unpackBundle>
+                    
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <artifactSet>
+                                <includes>
+                                    <include>${pkgGroupId}:${pkgArtifactId}</include>
+                                </includes>
+                            </artifactSet>
+                            <filters>
+                                <filter>
+                                    <artifact>${pkgGroupId}:${pkgArtifactId}</artifact>
+                                    <excludes>
+                                        <exclude>**</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                            <promoteTransitiveDependencies>true</promoteTransitiveDependencies>
+                            <createDependencyReducedPom>true</createDependencyReducedPom>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>

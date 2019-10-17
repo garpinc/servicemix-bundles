@@ -28,7 +28,7 @@
     <relativePath>../bundles-pom/pom.xml</relativePath>
   </parent>
 
-  <artifactId>org.apache.servicemix.bundles.thymeleaf</artifactId>
+  <artifactId>org.apache.servicemix.bundles.thymeleaf-spring5</artifactId>
   <version>3.0.11.RELEASE_2</version>
   <packaging>bundle</packaging>
   <name>Apache ServiceMix :: Bundles :: ${pkgArtifactId}</name>
@@ -43,14 +43,15 @@
 
   <properties>
     <pkgGroupId>org.thymeleaf</pkgGroupId>
-    <pkgArtifactId>thymeleaf</pkgArtifactId>
+    <pkgArtifactId>thymeleaf-spring5</pkgArtifactId>
     <pkgVersion>3.0.11.RELEASE</pkgVersion>
     <servicemix.osgi.export.pkg>
       org.thymeleaf
     </servicemix.osgi.export.pkg>
     <servicemix.osgi.import.pkg>
       javax.servlet.*;resolution:=optional,
-      com.fasterxml.jackson.*;resolution:=optional,
+      org.springframework.webflow.*;resolution:=optional,
+      org.springframework.js.*;resolution:=optional,
       *
     </servicemix.osgi.import.pkg>
   </properties>
