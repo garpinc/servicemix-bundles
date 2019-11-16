@@ -1,0 +1,11 @@
+\u001B[1mSYNOPSIS\u001B[0m
+    ${project.description}
+
+    Original Maven URL:
+        \u001B[33mmvn:${pkgGroupId}/${pkgArtifactId}/${pkgVersion}\u001B[0m
+
+\u001B[1mDESCRIPTION\u001B[0m
+    HTrace is a tracing framework intended for use with distributed systems written in java..
+
+\u001B[1mSEE ALSO\u001B[0m
+    \u001B[36mhttp://http://incubator.apache.org/projects/htrace.html\u001B[0m

@@ -1,0 +1,14 @@
+\u001B[1mSYNOPSIS\u001B[0m
+    ${project.description}
+
+    Original Maven URL:
+        \u001B[33mmvn:${pkgGroupId}/${pkgArtifactId}/${pkgVersion}\u001B[0m
+
+\u001B[1mDESCRIPTION\u001B[0m
+    RE2 is a regular expression engine that runs in time linear in the size of the input. RE2/J is a port of RE2 to pure Java.
+
+    This is a work derived from Russ Cox's RE2 in Go, whose license
+	http://golang.org/LICENSE is as follows:
+
+\u001B[1mSEE ALSO\u001B[0m
+    \u001B[36mhttps://github.com/google/re2j\u001B[0m
