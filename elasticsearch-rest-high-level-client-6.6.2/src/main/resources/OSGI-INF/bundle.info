@@ -1,0 +1,13 @@
+\u001B[1mSYNOPSIS\u001B[0m
+    ${project.description}
+
+    Original Maven URL:
+        \u001B[33mmvn:${pkgGroupId}/rest/${pkgVersion}\u001B[0m
+        \u001B[33mmvn:${pkgGroupId}/transport/${pkgVersion}\u001B[0m
+        \u001B[33mmvn:${pkgGroupId}/sniffer/${pkgVersion}\u001B[0m
+
+\u001B[1mDESCRIPTION\u001B[0m
+    The Java High Level REST Client works on top of the Java Low Level REST client. Its main goal is to expose API specific methods, that accept request objects as an argument and return response objects, so that request marshalling and response un-marshalling is handled by the client itself.
+
+\u001B[1mSEE ALSO\u001B[0m
+    \u001B[36mhttp://www.elasticsearch.org\u001B[0m
