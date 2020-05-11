@@ -62,8 +62,10 @@
 			org.elasticsearch.index.rankeval;resolution:=optional,
 			org.elasticsearch.join;resolution:=optional,
 			org.elasticsearch.percolator;resolution:=optional,
-			org.elasticsearch.script.mustache;resolution:=optional,			
-			*
+			org.elasticsearch.script.mustache;resolution:=optional,
+			org.elasticsearch.client.core;resolution:=optional,
+			org.elasticsearch.client.ml;resolution:=optional,
+			*		
         </servicemix.osgi.import.pkg>
     </properties>
 
